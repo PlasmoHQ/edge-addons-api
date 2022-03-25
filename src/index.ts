@@ -1,4 +1,4 @@
-import { ReadStream, createReadStream } from "fs"
+import { createReadStream, ReadStream } from "fs"
 import got, { OptionsOfTextResponseBody } from "got"
 
 export type Options = {
