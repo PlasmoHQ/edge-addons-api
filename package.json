@@ -1,7 +1,7 @@
 {
-  "name": "@plasmo-corp/qtt",
-  "version": "1.5.2",
-  "description": "",
+  "name": "@plasmo-corp/ewu",
+  "version": "0.0.0",
+  "description": "Microsoft Edge Webstore Upload",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": "./dist/index.js",
@@ -13,7 +13,7 @@
     "dev:type:emit": "tsc -w --emitDeclarationOnly",
     "dev:type:alias": "tsc-alias -w",
     "dev:compile": "esbuild src/index.ts --bundle --watch --sourcemap --platform=node --outdir=dist",
-    "dev:test": "jest --watch",
+    "#dev:test": "jest --watch",
     "build": "run-p build:type build:compile",
     "build:type": "run-s build:type:*",
     "build:type:emit": "tsc --emitDeclarationOnly",
@@ -26,10 +26,13 @@
   "author": "Plasmo Corp. <support@plasmo.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/plasmo-corp/qtt.git"
+    "url": "https://github.com/plasmo-corp/edge-webstore-upload.git"
   },
   "license": "MIT",
   "keywords": [],
+  "dependencies": {
+    "got": "12.0.2"
+  },
   "devDependencies": {
     "@jest/globals": "27.5.1",
     "@plasmo-corp/rps": "1.2.1",

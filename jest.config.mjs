@@ -3,6 +3,8 @@
  */
 
 const config = {
+  testTimeout: 60000 * 5, // Test can run for 5 minutes
+
   clearMocks: true,
   moduleFileExtensions: ["js", "ts"],
   testMatch: ["**/*.test.ts"],
