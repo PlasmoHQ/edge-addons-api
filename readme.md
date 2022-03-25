@@ -5,6 +5,7 @@ This module uses [got](https://github.com/sindresorhus/got) to upload, check sta
 Feature includes:
 
 - TypeScript API
+- ESM (if you need cjs, file an issue)
 - Frozen dependencies, updated via renovatebot
 
 ## Usage

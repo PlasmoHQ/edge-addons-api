@@ -1,4 +1,4 @@
-import { createReadStream, ReadStream } from "fs"
+import { ReadStream, createReadStream } from "fs"
 import got, { OptionsOfTextResponseBody } from "got"
 
 export type Options = {
@@ -53,7 +53,7 @@ export const requiredFields = Object.keys(errorMap) as Array<
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
-const baseApiUrl = "https://api.addons.microsoftedge.microsoft.com/"
+const baseApiUrl = "https://api.addons.microsoftedge.microsoft.com"
 export class EdgeWebstoreClient {
   options = {} as Options
 
@@ -200,7 +200,7 @@ export class EdgeWebstoreClient {
   getAccessToken = async () => {
     const data = await got
       .post(`${this.options.accessTokenUrl}`, {
-        body: `client_id=${this.options.clientId}&scope=${baseApiUrl}.default&client_secret=${this.options.clientSecret}&grant_type=client_credentials`,
+        body: `client_id=${this.options.clientId}&scope=${baseApiUrl}/.default&client_secret=${this.options.clientSecret}&grant_type=client_credentials`,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         }

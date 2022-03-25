@@ -1,16 +1,18 @@
 {
   "name": "@plasmo-corp/ewu",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "Microsoft Edge Webstore Upload",
-  "main": "./dist/index.js",
+  "exports": "./dist/source/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=16.14"
+  },
   "scripts": {
     "dev": "tsup src/index.ts --format esm --watch --sourcemap inline",
-    "#dev:test": "jest --watch",
     "build": "tsup src/index.ts --format esm --dts-resolve",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "clean": "rimraf dist",
@@ -22,7 +24,12 @@
     "url": "https://github.com/plasmo-corp/edge-webstore-upload.git"
   },
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "edge",
+    "webstore",
+    "upload",
+    "add-ons"
+  ],
   "dependencies": {
     "got": "12.0.2"
   },
