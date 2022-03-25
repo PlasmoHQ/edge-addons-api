@@ -1,10 +1,11 @@
 import { expect, test } from "@jest/globals"
+import { readFile } from "fs/promises"
 
-import { EdgeWebstoreClient } from "~index"
-
-import key from "../key.json"
+import { EdgeWebstoreClient, Options } from "~index"
 
 test("test upload test.zip artifact", async () => {
+  const key = JSON.parse(await readFile("keys.json", "utf8")) as Options
+
   const client = new EdgeWebstoreClient(key)
   const resp = await client.submit({
     filePath: "test.zip",
