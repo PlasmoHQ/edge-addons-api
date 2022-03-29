@@ -29,3 +29,9 @@ jobs:
       - run: pnpm i
       - run: pnpm clean
       - run: pnpm build
+      - run: pnpm dlx @plasmo-corp/mystic-box test-zip 0.0.8
+      - uses: plasmo-corp/soft-secret@v1
+        with:
+          secret: ${{ secrets.TEST_KEY }}
+          target: "key.json"
+      - run: pnpm test
