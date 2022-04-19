@@ -1,7 +1,7 @@
 {
   "name": "@plasmo-corp/ewu",
-  "version": "0.5.1",
-  "description": "Microsoft Edge Webstore Upload",
+  "version": "0.6.0",
+  "description": "Microsoft Edge Addons API for Node.js",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
@@ -18,7 +18,7 @@
     "clean": "rimraf dist",
     "prepublishOnly": "run-s clean build test"
   },
-  "author": "Plasmo Corp. <support@plasmo.com>",
+  "author": "Plasmo Corp. <foss@plasmo.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/plasmo-corp/edge-webstore-upload.git"
@@ -37,13 +37,13 @@
     "@jest/globals": "27.5.1",
     "@plasmo-corp/rps": "1.2.1",
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
-    "@types/node": "17.0.23",
+    "@types/node": "17.0.25",
     "cross-env": "7.0.3",
     "jest": "27.5.1",
-    "prettier": "2.6.1",
+    "prettier": "2.6.2",
     "rimraf": "3.0.2",
     "ts-jest": "27.1.4",
-    "tsup": "5.12.1",
+    "tsup": "5.12.5",
     "typescript": "4.6.3"
   }
 }
