@@ -6,7 +6,7 @@ specifiers:
   '@trivago/prettier-plugin-sort-imports': 3.2.0
   '@types/node': 17.0.25
   cross-env: 7.0.3
-  got: 12.0.3
+  got: 12.0.4
   jest: 27.5.1
   prettier: 2.6.2
   rimraf: 3.0.2
@@ -15,7 +15,7 @@ specifiers:
   typescript: 4.6.3
 
 dependencies:
-  got: 12.0.3
+  got: 12.0.4
 
 devDependencies:
   '@jest/globals': 27.5.1
@@ -247,12 +247,16 @@ packages:
     resolution: {integrity: sha512-oG0ej7efjEXxb4UgE+klVx+3j4MVo+A2vCzm7OUN4CLo6WhQ+vSOD2yJ8m7B+DghObxtLxt3EfgMWpq+AsWehQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.0
     dev: true
 
   /@babel/parser/7.17.8:
     resolution: {integrity: sha512-BoHhDJrJXqcg+ZL16Xv39H9n+AqJ4pcDrQBGZN+wHxIysrLZ3/ECwCBUch/1zUNhnsXULcONU3Ei5Hmkfk6kiQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.0
     dev: true
 
   /@babel/plugin-syntax-async-generators/7.8.4_@babel+core@7.17.8:
@@ -1809,8 +1813,8 @@ packages:
       slash: 3.0.0
     dev: true
 
-  /got/12.0.3:
-    resolution: {integrity: sha512-hmdcXi/S0gcAtDg4P8j/rM7+j3o1Aq6bXhjxkDhRY2ipe7PHpvx/14DgTY2czHOLaGeU8VRvRecidwfu9qdFug==}
+  /got/12.0.4:
+    resolution: {integrity: sha512-2Eyz4iU/ktq7wtMFXxzK7g5p35uNYLLdiZarZ5/Yn3IJlNEpBd5+dCgcAyxN8/8guZLszffwe3wVyw+DEVrpBg==}
     engines: {node: '>=14.16'}
     dependencies:
       '@sindresorhus/is': 4.6.0
