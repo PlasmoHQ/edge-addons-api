@@ -13,7 +13,7 @@ Features include:
 ## Installation
 
 ```
-npm install --save-dev @plasmo-corp/ewu
+npm install --save-dev @PlasmoHQ/ewu
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ You can get these for your project by following the [Microsoft Edge Add-Ons API 
 ### Node.js API
 
 ```ts
-import { EdgeWebstoreClient } from "@plasmo-corp/ewu"
+import { EdgeWebstoreClient } from "@PlasmoHQ/ewu"
 
 const client = new EdgeWebstoreClient({
   productId,
