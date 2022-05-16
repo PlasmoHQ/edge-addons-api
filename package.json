@@ -1,5 +1,5 @@
 {
-  "name": "@plasmo-corp/ewu",
+  "name": "@plasmohq/ewu",
   "version": "0.6.0",
   "description": "Microsoft Edge Addons API for Node.js",
   "exports": "./dist/index.js",
@@ -21,7 +21,7 @@
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/plasmo-corp/edge-webstore-upload.git"
+    "url": "https://github.com/plasmohq/edge-webstore-upload.git"
   },
   "license": "MIT",
   "keywords": [
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@jest/globals": "28.1.0",
-    "@plasmo-corp/rps": "1.3.0",
+    "@plasmohq/rps": "1.3.1",
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
     "@types/node": "17.0.34",
     "cross-env": "7.0.3",
