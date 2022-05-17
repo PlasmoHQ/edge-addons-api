@@ -54,7 +54,7 @@ export const requiredFields = Object.keys(errorMap) as Array<
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const baseApiUrl = "https://api.addons.microsoftedge.microsoft.com"
-export class EdgeWebstoreClient {
+export class EdgeAddonsAPI {
   options = {} as Options
 
   constructor(options: Options) {
