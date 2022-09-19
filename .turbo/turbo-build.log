@@ -1,15 +1,15 @@
-[35m@plasmohq/edge-addons-api:build[0m: cache hit, replaying output [2m8ec6c43fb4a923c3[0m
-[35m@plasmohq/edge-addons-api:build: [0m
-[35m@plasmohq/edge-addons-api:build: [0m> @plasmohq/edge-addons-api@1.0.1 build P:\Projects\plasmo-corp\bpp\packages\edge-addons-api
-[35m@plasmohq/edge-addons-api:build: [0m> tsup src/index.ts --format esm --dts-resolve
-[35m@plasmohq/edge-addons-api:build: [0m
-[35m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m Building entry: src/index.ts
-[35m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m Using tsconfig: tsconfig.json
-[35m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m tsup v6.2.3
-[35m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m Target: node14
-[35m@plasmohq/edge-addons-api:build: [0m[34mESM[39m Build start
-[35m@plasmohq/edge-addons-api:build: [0m[32mESM[39m [1mdist\index.js [22m[32m4.56 KB[39m
-[35m@plasmohq/edge-addons-api:build: [0m[32mESM[39m ⚡️ Build success in 57ms
-[35m@plasmohq/edge-addons-api:build: [0m[34mDTS[39m Build start
-[35m@plasmohq/edge-addons-api:build: [0m[32mDTS[39m ⚡️ Build success in 2697ms
-[35m@plasmohq/edge-addons-api:build: [0m[32mDTS[39m [1mdist\index.d.ts [22m[32m1.59 KB[39m
+[32m@plasmohq/edge-addons-api:build[0m: cache hit, replaying output [2mc0a35c73b0f20532[0m
+[32m@plasmohq/edge-addons-api:build: [0m
+[32m@plasmohq/edge-addons-api:build: [0m> @plasmohq/edge-addons-api@1.0.1 build P:\Projects\plasmo-corp\bpp\packages\edge-addons-api
+[32m@plasmohq/edge-addons-api:build: [0m> tsup src/index.ts --format esm --dts-resolve
+[32m@plasmohq/edge-addons-api:build: [0m
+[32m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m Building entry: src/index.ts
+[32m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m Using tsconfig: tsconfig.json
+[32m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m tsup v6.2.3
+[32m@plasmohq/edge-addons-api:build: [0m[34mCLI[39m Target: node14
+[32m@plasmohq/edge-addons-api:build: [0m[34mESM[39m Build start
+[32m@plasmohq/edge-addons-api:build: [0m[32mESM[39m [1mdist\index.js [22m[32m4.56 KB[39m
+[32m@plasmohq/edge-addons-api:build: [0m[32mESM[39m ⚡️ Build success in 58ms
+[32m@plasmohq/edge-addons-api:build: [0m[34mDTS[39m Build start
+[32m@plasmohq/edge-addons-api:build: [0m[32mDTS[39m ⚡️ Build success in 3207ms
+[32m@plasmohq/edge-addons-api:build: [0m[32mDTS[39m [1mdist\index.d.ts [22m[32m1.59 KB[39m
