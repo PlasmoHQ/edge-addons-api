@@ -35,7 +35,7 @@
   "devDependencies": {
     "@jest/globals": "29.2.2",
     "@plasmohq/prettier-plugin-sort-imports": "3.5.4",
-    "@plasmohq/rps": "1.5.3",
+    "@plasmohq/rps": "1.8.1",
     "@types/node": "18.11.9",
     "cross-env": "7.0.3",
     "jest": "29.2.2",
