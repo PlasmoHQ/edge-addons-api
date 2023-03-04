@@ -30,7 +30,7 @@
     "add-ons"
   ],
   "dependencies": {
-    "got": "12.5.3"
+    "got": "12.6.0"
   },
   "devDependencies": {
     "@jest/globals": "29.3.1",
