@@ -1,5 +1,5 @@
 import { ReadStream, createReadStream } from "fs"
-import got, { OptionsOfTextResponseBody } from "got"
+import got, { type OptionsOfTextResponseBody } from "got"
 
 export type Options = {
   productId: string
