@@ -1,7 +1,7 @@
 import { expect, test } from "@jest/globals"
 import { readFile } from "fs/promises"
 
-import { EdgeAddonsAPI, Options } from "~index"
+import { EdgeAddonsAPI, type Options } from "~index"
 
 test("test upload test.zip artifact", async () => {
   const key = JSON.parse(await readFile("key.json", "utf8")) as Options
