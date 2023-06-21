@@ -62,9 +62,8 @@ export class EdgeAddonsAPI {
       if (!options[field]) {
         throw new Error(errorMap[field])
       }
-
-      this.options[field] = options[field]
     }
+    this.options = { ...options }
   }
 
   get productEndpoint() {
