@@ -33,7 +33,7 @@
     "got": "13.0.0"
   },
   "devDependencies": {
-    "@jest/globals": "29.5.0",
+    "@jest/globals": "29.6.4",
     "@plasmo/config": "workspace:*",
     "@plasmohq/rps": "1.8.6",
     "@types/node": "20.3.1",
