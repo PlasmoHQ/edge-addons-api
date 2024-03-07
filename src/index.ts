@@ -8,6 +8,8 @@ export type Options = {
   clientSecret: string
 
   accessTokenUrl: string
+
+  uploadOnly?: boolean
 }
 
 type AuthTokenResponse = {
@@ -90,6 +92,10 @@ export class EdgeAddonsAPI {
     )
 
     await this.waitForUpload(uploadResp, accessToken)
+
+    if (this.options.uploadOnly) {
+      return
+    }
 
     return this.publish(notes, accessToken)
   }
