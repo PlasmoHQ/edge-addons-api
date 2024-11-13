@@ -47,7 +47,7 @@ npm install --save-dev @plasmohq/edge-addons-api
 
 ### Authentication
 
-You'll need to get a `productId`, `clientId`, `clientSecret`, and `accessTokenUrl` for your project.
+You'll need to get a `productId`, `clientId`, `apiKey` for your project.
 
 You can get these for your project by following the [Microsoft Edge Add-Ons API guide](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/publish/api/using-addons-api).
 
@@ -59,8 +59,7 @@ import { EdgeAddonsAPI } from "@plasmohq/edge-addons-api"
 const client = new EdgeAddonsAPI({
   productId,
   clientId,
-  clientSecret,
-  accessTokenUrl
+  apiKey
 })
 
 await client.submit({
