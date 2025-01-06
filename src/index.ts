@@ -3,12 +3,8 @@ import got, { type OptionsOfTextResponseBody } from "got"
 
 export type Options = {
   productId: string
-
   clientId: string
-  clientSecret: string
-
-  accessTokenUrl: string
-
+  apiKey: string;
   uploadOnly?: boolean
 }
 
@@ -43,10 +39,8 @@ export const errorMap = {
     "Product ID is required. To get one, go to: https://partner.microsoft.com/en-us/dashboard/microsoftedge/{product-id}/package/dashboard",
   clientId:
     "Client ID is required. To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi",
-  clientSecret:
-    "Client Secret is required. To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi",
-  accessTokenUrl:
-    "Access token URL is required. To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+  apiKey:
+    "API Key is required. To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi",
 }
 
 export const requiredFields = Object.keys(errorMap) as Array<
@@ -84,28 +78,23 @@ export class EdgeAddonsAPI {
    * @returns the publish operation id
    */
   async submit({ filePath = "", notes = "" }) {
-    const accessToken = await this.getAccessToken()
-
     const uploadResp = await this.upload(
-      createReadStream(filePath),
-      accessToken
+      createReadStream(filePath)
     )
 
-    await this.waitForUpload(uploadResp, accessToken)
+    await this.waitForUpload(uploadResp)
 
     if (this.options.uploadOnly) {
       return
     }
 
-    return this.publish(notes, accessToken)
+    return this.publish(notes)
   }
 
-  async publish(notes = "", _accessToken = null as string) {
-    const accessToken = _accessToken || (await this.getAccessToken())
-
+  async publish(notes = "") {
     const options = {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        ...this.getPublishApiDefaultHeaders(),
         "Content-Type": "application/x-www-form-urlencoded"
       }
     } as OptionsOfTextResponseBody
@@ -121,13 +110,11 @@ export class EdgeAddonsAPI {
     return publishResp.headers.location
   }
 
-  async upload(readStream = null as ReadStream, _accessToken = null as string) {
-    const accessToken = _accessToken || (await this.getAccessToken())
-
+  async upload(readStream = null as ReadStream) {
     const uploadResp = await got.post(this.uploadEndpoint, {
       body: readStream,
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        ...this.getPublishApiDefaultHeaders(),
         "Content-Type": "application/zip"
       }
     })
@@ -137,26 +124,21 @@ export class EdgeAddonsAPI {
     return uploadResp.headers.location
   }
 
-  async getPublishStatus(operationId: string, _accessToken = null as string) {
-    const accessToken = _accessToken || (await this.getAccessToken())
+  async getPublishStatus(operationId: string) {
     const statusEndpoint = `${this.publishEndpoint}/operations/${operationId}`
 
     return got
       .get(statusEndpoint, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
+        headers: this.getPublishApiDefaultHeaders()
       })
       .json<OperationResponse>()
   }
 
   async waitForUpload(
     operationId: string,
-    _accessToken = null as string,
     retryCount = 5,
     pollTime = 3000
   ) {
-    const accessToken = _accessToken || (await this.getAccessToken())
     const statusEndpoint = `${this.uploadEndpoint}/operations/${operationId}`
 
     let successMessage: string
@@ -167,9 +149,7 @@ export class EdgeAddonsAPI {
     while (uploadStatus !== "Succeeded" && attempts < retryCount) {
       const statusResp = await got
         .get(statusEndpoint, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`
-          }
+          headers: this.getPublishApiDefaultHeaders()
         })
         .json<OperationResponse>()
 
@@ -202,16 +182,14 @@ export class EdgeAddonsAPI {
     }
   }
 
-  getAccessToken = async () => {
-    const data = await got
-      .post(`${this.options.accessTokenUrl}`, {
-        body: `client_id=${this.options.clientId}&scope=${baseApiUrl}/.default&client_secret=${this.options.clientSecret}&grant_type=client_credentials`,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
-      })
-      .json<AuthTokenResponse>()
+  private getPublishApiDefaultHeaders() {
+    // All requests need the following headers (https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/publish/api/using-addons-api?tabs=v1-1):
+    //   - Authorization: ApiKey $ApiKey;
+    //   - X-ClientID: $ClientID;
 
-    return data.access_token
+    return {
+      Authorization: `ApiKey ${this.options.apiKey}`,
+      'X-ClientID': this.options.clientId
+    }
   }
 }
