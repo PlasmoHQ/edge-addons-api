@@ -88,7 +88,9 @@ export class EdgeAddonsAPI {
       return
     }
 
-    return this.publish(notes)
+    const publishOperationId = await this.publish(notes)
+    await this.waitForPublish(publishOperationId)
+    return publishOperationId
   }
 
   async publish(notes = "") {
@@ -132,6 +134,35 @@ export class EdgeAddonsAPI {
         headers: this.getPublishApiDefaultHeaders()
       })
       .json<OperationResponse>()
+  }
+
+  async waitForPublish(
+    operationId: string,
+    retryCount = 10,
+    pollTime = 5000
+  ) {
+    let status: OperationResponse["status"]
+    let attempts = 0
+
+    while (status !== "Succeeded" && attempts < retryCount) {
+      const statusResp = await this.getPublishStatus(operationId)
+
+      if (statusResp.status === "Failed") {
+        throw new Error(
+          statusResp.message ||
+            statusResp.errorCode + ":" + (statusResp.errors || []).join(",")
+        )
+      } else if (statusResp.status === "InProgress") {
+        await wait(pollTime)
+      }
+
+      status = statusResp.status
+      attempts++
+    }
+
+    if (status !== "Succeeded") {
+      throw new Error("Publish operation timed out")
+    }
   }
 
   async waitForUpload(
